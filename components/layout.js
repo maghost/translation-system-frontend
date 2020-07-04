@@ -1,13 +1,13 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
+import Link from "next/link";
 
-import styles from './layout.module.scss'
-import utilStyles from '../styles/utils.module.scss'
+import styles from "./layout.module.scss";
+import utilStyles from "../styles/utils.module.scss";
 
-const name = 'Matheus Marques'
-export const siteTitle = 'A Simple Next.js Website'
+const name = "Matheus Marques";
+export const siteTitle = "A Simple Next.js Website";
 
-function Layout({ children, home }) {
+export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -63,7 +63,5 @@ function Layout({ children, home }) {
         </div>
       )}
     </div>
-  )
+  );
 }
-
-export default Layout
