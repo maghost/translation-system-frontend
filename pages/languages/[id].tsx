@@ -19,11 +19,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const language = params.id;
-  const namespaces = await getNamespaces(language);
+  const languageId = Array.isArray(language) ? language[0] : language;
+  const namespaces = await getNamespaces(languageId);
 
   return {
     props: {
-      language,
+      language: languageId,
       namespaces,
     },
   };

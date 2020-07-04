@@ -4,9 +4,9 @@ interface ResponseGetNamespaces {
   namespaces: string[];
 }
 
-export async function getNamespaces(id) {
+export async function getNamespaces(language: string) {
   const response = await axios.get<ResponseGetNamespaces>(
-    `${process.env.apiUrl}/namespaces/${id}`
+    `${process.env.apiUrl}/namespaces/${language}`
   );
 
   const { namespaces } = response.data;
@@ -14,8 +14,8 @@ export async function getNamespaces(id) {
   return namespaces;
 }
 
-export async function getAllNamespacesIds(id) {
-  const namespaces = await getNamespaces(id);
+export async function getAllNamespacesIds(language: string) {
+  const namespaces = await getNamespaces(language);
 
   return namespaces.map((namespace) => {
     return {
