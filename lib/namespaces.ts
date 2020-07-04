@@ -6,7 +6,7 @@ interface ResponseGetNamespaces {
 
 export async function getNamespaces(language: string) {
   const response = await axios.get<ResponseGetNamespaces>(
-    `${process.env.apiUrl}/namespaces/${language}`
+    `${process.env.API_URL}/namespaces/${language}`
   );
 
   const { namespaces } = response.data;

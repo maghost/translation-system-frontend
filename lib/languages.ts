@@ -6,7 +6,7 @@ interface ResponseGetLanguages {
 
 export async function getLanguages() {
   const response = await axios.get<ResponseGetLanguages>(
-    `${process.env.apiUrl}/languages`
+    `${process.env.API_URL}/languages`
   );
 
   const { languages } = response.data;
