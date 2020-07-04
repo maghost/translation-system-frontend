@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -9,14 +9,10 @@ import { Layout, siteTitle } from "components";
 
 import utilStyles from "styles/utils.module.scss";
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const languages = await getLanguages();
 
-  return {
-    props: {
-      languages,
-    },
-  };
+  return { props: { languages } };
 };
 
 interface HomeProps {

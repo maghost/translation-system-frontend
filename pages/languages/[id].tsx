@@ -1,23 +1,13 @@
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 
-import { getAllLanguagesIds } from "lib/languages";
 import { getNamespaces } from "lib/namespaces";
 
 import { Layout } from "components";
 
 import utilStyles from "styles/utils.module.scss";
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllLanguagesIds();
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const language = params.id;
   const languageId = Array.isArray(language) ? language[0] : language;
   const namespaces = await getNamespaces(languageId);
