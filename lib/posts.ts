@@ -18,9 +18,12 @@ export function getSortedPostsData() {
 
     return {
       id,
+      date: "",
       ...matterResult.data,
     };
   });
+
+  console.log("allPostsData", allPostsData);
 
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {

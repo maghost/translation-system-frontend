@@ -7,7 +7,7 @@ import utilStyles from "../styles/utils.module.scss";
 const name = "Matheus Marques";
 export const siteTitle = "A Simple Next.js Website";
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home = false }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -25,6 +25,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+
       <header className={styles.header}>
         {home ? (
           <>
@@ -54,7 +55,9 @@ export default function Layout({ children, home }) {
           </>
         )}
       </header>
+
       <main>{children}</main>
+
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
