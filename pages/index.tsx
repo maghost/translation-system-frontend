@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import { GetStaticProps } from "next";
 
 import Head from "next/head";
