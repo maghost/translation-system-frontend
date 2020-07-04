@@ -1,7 +1,12 @@
 import cn from "classnames";
+
+import { AlertProps as Props } from "./types";
+
 import styles from "./alert.module.scss";
 
-export default function Alert({ children, type }) {
+function Alert(props: Props) {
+  const { children, type } = props;
+
   return (
     <div
       className={cn({
@@ -13,3 +18,5 @@ export default function Alert({ children, type }) {
     </div>
   );
 }
+
+export { Alert };

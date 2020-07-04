@@ -2,7 +2,9 @@ import { AppProps } from "next/app";
 
 import "../styles/global.scss";
 
-function App({ Component, pageProps }: AppProps) {
+function App(props: AppProps) {
+  const { Component, pageProps } = props;
+
   return <Component {...pageProps} />;
 }
 
